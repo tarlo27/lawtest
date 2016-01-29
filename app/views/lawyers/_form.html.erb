@@ -1,0 +1,65 @@
+<div class="panel-body">
+	<div class="row">
+		<div class="col-lg-12">
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :id => "personal-form", :style => "display: block;" }) do |f| %>
+				<div class="form-group">
+					<%= f.text_field :first_name, autofocus: true, tabindex: "1", class: "form-control", placeholder: "First Name", required: true %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :last_name, tabindex: "2", class: "form-control", placeholder: "Last Name", required: true %>
+				</div>
+				<div class="form-group">
+					<%= f.email_field :email, tabindex: "3", class: "form-control", placeholder: "Email", required: true, oninput: "document.getElementById('email_check').value = this.value" %>
+				</div>
+				<div class="form-group">
+					<%= f.country_select :country, priority_countries: ["SG"], style: 'border: 1px solid red;', tabindex: "4" %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :phone, tabindex: "3", class: "form-control", placeholder: "Email", required: true, oninput: "document.getElementById('email_check').value = this.value" %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :zipcode, tabindex: "3", class: "form-control", placeholder: "Email", required: true, oninput: "document.getElementById('email_check').value = this.value" %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :area_of_practice, tabindex: "3", class: "form-control", placeholder: "Email", required: true, oninput: "document.getElementById('email_check').value = this.value" %>
+				</div>
+				<div class="form-group">
+					<%= f.text_field :lawfirm_id, tabindex: "3", class: "form-control", placeholder: "Email", required: true, oninput: "document.getElementById('email_check').value = this.value" %>
+				</div>
+				<div class="form-group">
+					<span class="btn btn-default btn-file" data-toggle="tooltip"
+					title="Please upload your document(s)"> Attach
+						Document(s)
+						<input type="file">
+					</span>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3">
+							<input type="submit" name="register-submit"
+							id="register-submit" tabindex="4"
+							class="form-control btn btn-register" value="Submit">
+						</div>
+					</div>
+				</div>
+			<% end %>
+			<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :id => "reset-pwd", :style => "display: none;" }) do |f| %>
+				<div class="form-group">
+					<%= f.password_field :password, autocomplete: "off", tabindex: "4", class: "form-control", placeholder: "Password", required: true, oninput: "inputVal(this.value, '#{@user}')" %>
+				</div>
+				<div class="form-group">
+					<%= f.password_field :password_confirmation, autocomplete: "off", tabindex: "5", class: "form-control", placeholder: "Confirm Password", required: true, oninput: "check('#{@user}')" %>
+				</div>
+				<div class="form-group">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3">
+							<input type="submit" name="login-submit" id="login-submit"
+							tabindex="4" class="form-control btn btn-login"
+							value="Reset Password">
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
