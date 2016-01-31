@@ -63,3 +63,6 @@ gem 'omniauth-linkedin'
 
 #Country select
 gem 'country_select'
+
+#test pg gem
+gem 'pg'
